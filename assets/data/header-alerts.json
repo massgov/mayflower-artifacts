@@ -10,7 +10,7 @@
       "accordion": true,
       "isExpanded": false,
       "accordionLabel": "Expand Actualizaciones sobre el desempleo",
-      "icon": "alert",
+      "icon": "input-warning",
       "title": "Actualizaciones sobre el desempleo",
       "suffix": "Updated: Mar. 17th, 2021, 11:10 am",
       "richText": {

@@ -15,10 +15,9 @@
           }) %}
           {% include "@atoms/09-media/image.twig" %}
         {% if imagePromo.tags %}
-          {# Icon labels for AT are added to imagePromoTitle block below the heaidng. #}
           <div class="ma__image-promo__tags">
             {% for tag in imagePromo.tags %}
-              <span data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
+              <span title="{{ tag.label }}" data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
             {% endfor %}
           </div>
         {% endif %}
@@ -37,15 +36,6 @@
             {{ imagePromo.title.text }}
           {% endif %}
         </h{{ headingLevel }}>
-      {% endif %}
-
-      {# Tag/icon info for AT users #}
-      {% if imagePromo.tags %}
-      <ul class="ma__visually-hidden" aria-label="Amenities">
-        {% for tag in imagePromo.tags %}
-          <li>{{ tag.label }}</li>
-        {% endfor %}
-      </ul>
       {% endif %}
     {% endblock %}
 
@@ -115,9 +105,9 @@
 
       {% block imagePromoHours %}
         {% if imagePromo.hours %}
-          <ul class="ma__image-promo__hours" aria-label="Hours">
+          <div class="ma__image-promo__hours">
             {% for hour in imagePromo.hours %}
-              <li class="ma__image-promo__hours-item">
+              <div class="ma__image-promo__hours-item">
                 {% if hour.label %}
                   <div class="ma__image-promo__label ma__image-promo__label--hours">
                     {{ hour.label }}
@@ -128,9 +118,9 @@
                     {{ hour.text }}
                   </div>
                 {% endif %}
-              </li>
+              </div>
             {% endfor %}
-          </ul>
+          </div>
         {% endif %}
       {% endblock %}
     </div>
