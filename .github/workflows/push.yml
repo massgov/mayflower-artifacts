@@ -3,7 +3,7 @@ name: "Push docs to SSR"
 on:
   push:
     branches:
-      - 1.x
+      - master
 
 defaults:
   run:
