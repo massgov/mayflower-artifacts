@@ -2,12 +2,7 @@
   <ul class="ma__utility-nav__items">
     {% if googleLanguages %}
       <li class="ma__utility-nav__item">
-        <div class="ma__utility-nav__translate">
-          <div id="google_translate_element"></div>
-          <div class="ma__utility-nav__translate-icon">
-            {{ icon('translate', "20", "20")}}
-          </div>
-        </div>
+        {% include "@molecules/modal.twig" %}
       </li>
     {% endif %}
     {% for item in utilityNav.items %}
