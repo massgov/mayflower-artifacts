@@ -12,43 +12,44 @@
       <button class="ma__action-step__header js-accordion-link">
     {% if actionStep.icon %}
       <div class="ma__action-step__icon">
-        {{ icon(actionStep.icon) }}
+        {{ icon(actionStep.icon, '24px', '24px', 'ma__action-step__icon--' ~ actionStep.icon) }}
         {% if actionStep.iconLabel %}<span class="ma__visually-hidden">{{actionStep.iconLabel}}</span>{% endif %}
       </div>
     {% endif %}
-      {{ actionStep.title }}
+      <span class="ma__action-step__title-text">{{ actionStep.title }}</span>
       {% if suffix %}
-        <span>{{suffix}}</span>
+        <span class="ma__action-step__title-suffix">{{suffix}}</span>
       {% endif %}
       <span class="ma__action-step__header__toggle" aria-hidden="true">+</span>
       </button>
     </h{{headingLevel}}>
   {% else %}
-    <header class="ma__action-step__header">
+    <div class="ma__action-step__header">
 
     {% set headingLevel = actionStep.level ? : 2 %}
     <h{{ headingLevel }} class="ma__action-step__title {{ link ? 'ma__decorative-link' : ''}}">
 
       {% if actionStep.icon %}
+      
         <div class="ma__action-step__icon">
-          {{ icon(actionStep.icon) }}
+          {{ icon(actionStep.icon, '24px', '24px', 'ma__action-step__icon--' ~ actionStep.icon) }}
           {% if actionStep.iconLabel %}<span class="ma__visually-hidden">{{actionStep.iconLabel}}</span>{% endif %}
         </div>
       {% endif %}
 
 
       {% if link %}
-        <a href="{{link}}" class="js-clickable-link">
-          {{ actionStep.title }} &nbsp;{{ icon('arrow') }}
+        <a href="{{link}}" class="ma__action-step__title-link js-clickable-link">
+          {{ actionStep.title }} &nbsp;{{ icon('arrow', '0.8em', '0.8em') }}
         </a>
       {% else %}
-        {{ actionStep.title }}
+        <span class="ma__action-step__title-text">{{ actionStep.title }}</span>
       {% endif %}
       {% if suffix %}
-        <span>{{suffix}}</span>
+        <span class="ma__action-step__title-suffix">{{suffix}}</span>
       {% endif %}
     </h{{ headingLevel }}>
-    </header>
+    </div>
   {% endif %}
 
   {% if actionStep.richText or actionStep.decorativeLink or actionStep.downloadLinks or actionStep.content %}
